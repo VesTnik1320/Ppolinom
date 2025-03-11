@@ -33,7 +33,8 @@ public:
 	void Reset();
 	bool IsEnd() { return pCurr == nullptr; }
 	void GoNext();
-	T GetCurr() { return pCurr->value; }
+	T &GetCurr() { return pCurr->value; }
+	void PushBack(T v);
 	void SetCurr(T v) { pCurr->value = v; }
 	bool IsEmpty() { return sz == 0; };
 	void Clear();
@@ -165,6 +166,20 @@ void TList<T>::InsFirst(T v)
 	tmp->pNext = pFirst;
 	pFirst = tmp;
 	if (sz == 0) {
+		pLast = tmp;
+	}
+	sz++;
+}
+
+template<class T>
+void TList<T>::PushBack(T v)
+{
+	Node<T>* tmp = new Node<T>(v);
+	if (sz == 0) {
+		pLast = pFirst = tmp;
+	}
+	else {
+		pLast->pNext = tmp;
 		pLast = tmp;
 	}
 	sz++;

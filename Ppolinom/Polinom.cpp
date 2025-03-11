@@ -108,7 +108,7 @@ Polinom Polinom::operator+(Polinom& p)
     }
     if (!p.IsEnd()) {
         for (; !p.IsEnd(); p.GoNext()) {
-            res.InsLast(p.GetCurr());
+            res.PushBack(p.GetCurr());
         }
     }
     return res;
@@ -142,7 +142,7 @@ Polinom Polinom::operator*(Polinom p)
     return res;
 }
 
-Polinom Polinom::operator*(Monome m)
+Polinom Polinom::operator*(Monom m)
 {
     Polinom res;
     if (m.coeff == 0.0) return res;

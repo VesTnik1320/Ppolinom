@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ppolinom", "Ppolinom\Ppolin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polinom&Monom tests", "Polinom&Monom tests\Polinom&Monom tests.vcxproj", "{99A8ED74-6EE3-4F9D-BEF5-101785A69CEA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VisualPolinom", "VisualPolinom\VisualPolinom.vcxproj", "{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{99A8ED74-6EE3-4F9D-BEF5-101785A69CEA}.Release|x64.Build.0 = Release|x64
 		{99A8ED74-6EE3-4F9D-BEF5-101785A69CEA}.Release|x86.ActiveCfg = Release|Win32
 		{99A8ED74-6EE3-4F9D-BEF5-101785A69CEA}.Release|x86.Build.0 = Release|Win32
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Debug|x64.ActiveCfg = Debug|x64
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Debug|x64.Build.0 = Debug|x64
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Debug|x86.ActiveCfg = Debug|Win32
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Debug|x86.Build.0 = Debug|Win32
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Release|x64.ActiveCfg = Release|x64
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Release|x64.Build.0 = Release|x64
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Release|x86.ActiveCfg = Release|Win32
+		{FA59EEFE-8DF2-48E5-96E2-19265DCA1678}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
