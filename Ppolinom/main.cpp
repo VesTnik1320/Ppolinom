@@ -9,6 +9,6 @@ void main() {
 	cout << p1 << endl;
 	Monom test1(-4, 0, 2, 1);
 	p1.AddMonom(test1);
-	 p1 << " DelLast " << endl;
+	cout << p1 << " DelLast " << endl;
 
 }

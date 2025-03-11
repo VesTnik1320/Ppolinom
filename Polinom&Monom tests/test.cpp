@@ -9,7 +9,7 @@ TEST(TPolinom, Polinom_Assign) {
 	p1 = p2;
 	EXPECT_EQ(p1, p2);
 	p1 = p1 + p1;
-	EXPECT_NE(p1, p2);
+	EXPECT_NE(p1, p2);//
 }
 TEST(TPolinom, Add_Monome/DelLast) {
 	Monom m1[3] = { Monom(1, 2, 1, 1), Monom(-3, 1, 0, 0), Monom(4, 0, 2, 1) };

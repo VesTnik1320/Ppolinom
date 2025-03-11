@@ -10,7 +10,7 @@ ostream& operator<<(ostream& out, Polinom& p)
     }
     return out;
 }
-
+//
 istream& operator>>(istream& in, Polinom& p)
 {
     double tmpCoeff;

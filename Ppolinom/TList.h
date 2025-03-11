@@ -157,7 +157,7 @@ void TList<T>::DelCurr()
 	if (pCurr == nullptr) pLast = pPrev;
 	sz--;
 }
-
+//
 template<class T>
 void TList<T>::InsFirst(T v)
 {
