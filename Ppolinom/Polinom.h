@@ -16,7 +16,7 @@ public:
 	Polinom operator*(double coef);
 	Polinom operator*(Polinom p);
 	Polinom operator*(Monom m);
-	//
+	
 
 	void AddMonom(Monom m);
 	friend ostream& operator <<(ostream& out, Polinom& p);

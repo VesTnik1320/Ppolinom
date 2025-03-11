@@ -22,4 +22,3 @@ istream& operator>>(istream& in, Monom& m)
     in >> m.coeff >> m.x >> m.y >> m.z;
     return in;
 }
-//
