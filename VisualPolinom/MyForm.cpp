@@ -1,7 +1,8 @@
 #include "MyForm.h"
+
 #include <Windows.h>
 
-using namespace VisualPolinom;
+using namespace wfPol;
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     Application::EnableVisualStyles();

@@ -108,7 +108,7 @@ Polinom Polinom::operator+(Polinom& p)
     }
     if (!p.IsEnd()) {
         for (; !p.IsEnd(); p.GoNext()) {
-            res.PushBack(p.GetCurr());
+            res.Inslast(p.GetCurr());
         }
     }
     return res;
@@ -155,4 +155,87 @@ Polinom Polinom::operator*(Monom m)
         res.AddMonom(tmp);
     }
     return res;
+}
+void Polinom::FromString(const std::string& str) {
+    std::istringstream iss(str);  // Создаем поток из строки
+    double tmpCoeff;
+    iss >> tmpCoeff;  // Читаем первый коэффициент
+
+    while (tmpCoeff != 0) {
+        Monom tmpMonom;
+        tmpMonom.coeff = tmpCoeff;
+
+        try {
+            // Читаем степени x, y, z
+            iss >> tmpMonom.x >> tmpMonom.y >> tmpMonom.z;
+        }
+        catch (const std::exception& e) {
+            throw std::runtime_error("Ошибка при чтении степеней: " + std::string(e.what()));
+        }
+
+        // Добавляем моном в полином
+        this->AddMonom(tmpMonom);  // Используем this для доступа к нестатическому методу
+
+        // Читаем следующий коэффициент
+        tmpCoeff = 0;
+        iss >> tmpCoeff;
+    }
+}
+
+std::string Polinom::ToString() {
+    std::ostringstream oss;  // Поток для формирования строки
+    bool firstMonom = true;  // Флаг для первого монома
+
+    // Используем константные итераторы для обхода полинома
+    for (Polinom::iterator it = Begin(); it != End(); ++it) {
+        const Monom& monom = *it;  // Получаем текущий моном
+
+        if (monom.coeff == 0) {
+            continue;  // Пропускаем мономы с нулевым коэффициентом
+        }
+
+        // Добавляем знак перед мономом (кроме первого)
+        if (!firstMonom) {
+            oss << (monom.coeff > 0 ? " + " : " - ");
+        }
+        else {
+            if (monom.coeff < 0) {
+                oss << "-";  // Добавляем минус перед первым мономом, если коэффициент отрицательный
+            }
+            firstMonom = false;
+        }
+
+        // Добавляем коэффициент (без знака)
+        double absCoeff = std::abs(monom.coeff);
+        if (absCoeff != 1 || (monom.x == 0 && monom.y == 0 && monom.z == 0)) {
+            oss << absCoeff;
+        }
+
+        // Добавляем переменные и их степени
+        if (monom.x != 0) {
+            oss << "x";
+            if (monom.x != 1) {
+                oss << "^" << monom.x;
+            }
+        }
+        if (monom.y != 0) {
+            oss << "y";
+            if (monom.y != 1) {
+                oss << "^" << monom.y;
+            }
+        }
+        if (monom.z != 0) {
+            oss << "z";
+            if (monom.z != 1) {
+                oss << "^" << monom.z;
+            }
+        }
+    }
+
+    // Если все мономы были нулевыми, возвращаем "0"
+    if (firstMonom) {
+        oss << "0";
+    }
+
+    return oss.str();
 }
