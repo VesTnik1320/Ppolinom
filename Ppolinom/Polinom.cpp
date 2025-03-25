@@ -37,11 +37,30 @@ Polinom::Polinom(Monom* p, int sz)
     }
 }
 
+Polinom& Polinom::operator=(const Polinom& p) {
+    if (this == &p) return *this;
+    TList<Monom>::operator=(p);
+    return *this;
+}
+
+
+bool Polinom::operator==(const Polinom& p) const {
+    if (this == &p) return true;
+    if (sz != p.sz) return false;
+    Node<Monom>* tmp1 = pFirst, * tmp2 = p.pFirst;
+    for (int i = 0; i < sz; i++) {
+        if ((tmp1->value != tmp2->value) || (tmp1->value.coeff != tmp2->value.coeff))
+            return false;
+        tmp1 = tmp1->pNext;
+        tmp2 = tmp2->pNext;
+    }
+    return true;
+}
+
 void Polinom::AddMonom(Monom m)
 {
     if (IsEmpty())Inslast(m);
     else {
-        //добавление первого и последнего звена
         if (pFirst->value < m) {
             InsFirst(m);
             return;

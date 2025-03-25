@@ -33,7 +33,7 @@ public:
 	void Reset();
 	bool IsEnd() { return pCurr == nullptr; }
 	void GoNext();
-	T &GetCurr() { return pCurr->value; }
+	T& GetCurr() { return pCurr->value; }
 	void PushBack(T v);
 	void SetCurr(T v) { pCurr->value = v; }
 	bool IsEmpty() { return sz == 0; };
@@ -42,7 +42,7 @@ public:
 	void DelCurr();
 	void InsFirst(T v);
 	void Inslast(T v);
-	void DelFront();
+	void DelFirst();
 	T Pop();
 };
 
@@ -72,7 +72,7 @@ TList<T>& TList<T>::operator=(const TList<T>& l)
 	}
 	else
 	{
-		for (size_t i = 0; i < sz; i++) DelFront();
+		for (size_t i = 0; i < sz; i++) DelFirst();
 		Node<T>* tmp = l.pFirst;
 		while (tmp != nullptr) {
 			PushBack(tmp->value);
@@ -120,14 +120,14 @@ void TList<T>::GoNext()
 template<class T>
 void TList<T>::Clear()
 {
-	while (sz != 0) DelFront();
+	while (sz != 0) DelFirst();
 }
 
 template<class T>
 void TList<T>::InsCurr(T v)
 {
 	if (pCurr == pFirst) {
-		PushFront(v);
+		InsFirst(v);
 		pPrev = pFirst;
 		return;
 	}
@@ -200,7 +200,7 @@ void TList<T>::Inslast(T v)
 }
 
 template<class T>
-void TList<T>::DelFront()
+void TList<T>::DelFirst()
 {
 	if (sz == 0) return;
 	Node<T>* tmp = pFirst;
